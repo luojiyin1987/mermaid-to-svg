@@ -22,14 +22,13 @@ pnpm run dev
 
 ## 本地预览
 
-如果你只想看静态文件，也可以：
+构建后直接用 `wrangler dev` 本地预览：
 
 ```bash
-pnpm run build
-python3 -m http.server 8000 --directory public
+pnpm run dev
 ```
 
-然后打开 `http://localhost:8000`。
+然后打开终端输出的本地地址即可。
 
 ## 部署
 
