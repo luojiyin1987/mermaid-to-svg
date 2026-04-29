@@ -13,6 +13,7 @@ const statusBadge = document.getElementById("status-badge");
 const DEFAULT_THEME = "tokyo-night";
 
 let currentSvg = "";
+let currentFileName = "";
 
 function setStatus(text, state) {
   statusBadge.textContent = text;
@@ -114,8 +115,9 @@ function downloadSvg() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
 
+  const base = currentFileName || "diagram";
   link.href = url;
-  link.download = `diagram-${themeSelect.value}.svg`;
+  link.download = `${base}-${themeSelect.value}.svg`;
   document.body.appendChild(link);
   link.click();
   link.remove();
@@ -134,6 +136,8 @@ async function handleFileUpload() {
   try {
     const text = await file.text();
 
+    const nameWithoutExt = file.name.replace(/\.[^.]+$/, "");
+    currentFileName = nameWithoutExt;
     sourceInput.value = text;
     fileName.textContent = file.name;
     clearError();
@@ -159,6 +163,7 @@ themeSelect.addEventListener("change", () => {
 });
 
 sourceInput.addEventListener("input", () => {
+  currentFileName = "";
   fileName.textContent = "未选择文件，当前使用手动输入";
 });
 
