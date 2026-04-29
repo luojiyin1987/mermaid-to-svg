@@ -56,9 +56,7 @@ function populateThemes() {
 }
 
 function getSelectedTheme() {
-  const theme = THEMES[themeSelect.value];
-
-  return theme || THEMES[DEFAULT_THEME] || Object.values(THEMES)[0];
+  return THEMES[themeSelect.value];
 }
 
 /**
