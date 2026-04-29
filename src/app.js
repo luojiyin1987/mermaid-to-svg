@@ -83,7 +83,8 @@ function renderDiagram() {
     currentSvg = "";
     preview.innerHTML = '<div class="empty-state"><p>请输入 Mermaid 再渲染。</p></div>';
     downloadButton.disabled = true;
-    showError("Mermaid 内容为空。");
+    clearError();
+    setStatus("等待渲染", "");
     return;
   }
 
