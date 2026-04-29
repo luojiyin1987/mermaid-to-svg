@@ -61,6 +61,14 @@ function getSelectedTheme() {
   return theme || THEMES[DEFAULT_THEME] || Object.values(THEMES)[0];
 }
 
+/**
+ * Normalize Mermaid source text.
+ *
+ * When users paste a single-line definition where nodes are separated by
+ * semicolons (e.g. "A --> B; B --> C"), splitting on semicolons makes it
+ * valid Mermaid syntax, because the renderer expects each statement on its
+ * own line.
+ */
 function normalizeSource(source) {
   const lines = source.split("\n").map((line) => line.trimEnd());
   const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
