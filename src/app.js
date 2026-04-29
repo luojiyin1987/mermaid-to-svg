@@ -11,14 +11,6 @@ const errorBox = document.getElementById("error-box");
 const statusBadge = document.getElementById("status-badge");
 
 const DEFAULT_THEME = "tokyo-night";
-const THEME_OPTIONS = [
-  "tokyo-night",
-  "catppuccin-mocha",
-  "nord",
-  "one-dark",
-  "github-light",
-  "solarized-light",
-];
 
 let currentSvg = "";
 
@@ -50,7 +42,7 @@ function prettifyThemeName(name) {
 }
 
 function populateThemes() {
-  const themeNames = THEME_OPTIONS.filter((name) => THEMES[name]);
+  const themeNames = Object.keys(THEMES);
 
   for (const name of themeNames) {
     const option = document.createElement("option");
