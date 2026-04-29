@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "esbuild src/app.js --bundle --minify --format=iife --platform=browser --target=es2020 --outfile=public/app.js",
-    "dev": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "dev": "pnpm run build && wrangler dev",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "beautiful-mermaid": "^1.1.3"

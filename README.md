@@ -14,18 +14,18 @@
 新人本地启动，直接跑：
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
-`npm run dev` 会先构建前端 bundle，再启动 `wrangler dev` 本地预览。
+`pnpm run dev` 会先构建前端 bundle，再启动 `wrangler dev` 本地预览。
 
 ## 本地预览
 
 如果你只想看静态文件，也可以：
 
 ```bash
-npm run build
+pnpm run build
 python3 -m http.server 8000 --directory public
 ```
 
@@ -38,19 +38,19 @@ python3 -m http.server 8000 --directory public
 ### 用 Wrangler 部署到 Workers Static Assets
 
 ```bash
-npm run deploy
+pnpm run deploy
 ```
 
 ### 用 Wrangler 本地预览
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ### Cloudflare Pages
 
 - Framework preset: `None`
-- Build command: `npm install && npm run build`
+- Build command: `pnpm install && pnpm run build`
 - Build output directory: `public`
 
 ## 文件
