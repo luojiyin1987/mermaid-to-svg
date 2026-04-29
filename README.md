@@ -14,18 +14,20 @@
 新人本地启动，直接跑：
 
 ```bash
-pnpm install
-pnpm run dev
+npm install
+npm run dev
 ```
 
-`pnpm run dev` 会先构建前端 bundle，再启动 `wrangler dev` 本地预览。
+`npm run dev` 会先构建前端 bundle，再启动 `wrangler dev` 本地预览。
+
+> 如果你已经安装了 [pnpm](https://pnpm.io)，也可以直接用 `pnpm install` 和 `pnpm run dev`。
 
 ## 本地预览
 
 构建后直接用 `wrangler dev` 本地预览：
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 然后打开终端输出的本地地址即可。
@@ -37,19 +39,19 @@ pnpm run dev
 ### 用 Wrangler 部署到 Workers Static Assets
 
 ```bash
-pnpm run deploy
+npm run deploy
 ```
 
 ### 用 Wrangler 本地预览
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 ### Cloudflare Pages
 
 - Framework preset: `None`
-- Build command: `pnpm install && pnpm run build`
+- Build command: `npm install && npm run build`
 - Build output directory: `public`
 
 ## 文件
