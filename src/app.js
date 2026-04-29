@@ -65,7 +65,7 @@ function populateThemes() {
 function getSelectedTheme() {
   const theme = THEMES[themeSelect.value];
 
-  return theme || THEMES[DEFAULT_THEME] || THEMES["zinc-light"];
+  return theme || THEMES[DEFAULT_THEME] || Object.values(THEMES)[0];
 }
 
 function normalizeSource(source) {
@@ -128,7 +128,7 @@ function downloadSvg() {
   link.click();
   link.remove();
 
-  setTimeout(() => URL.revokeObjectURL(url), 0);
+  requestAnimationFrame(() => URL.revokeObjectURL(url));
 }
 
 async function handleFileUpload() {
