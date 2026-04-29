@@ -59,31 +59,8 @@ function getSelectedTheme() {
   return THEMES[themeSelect.value];
 }
 
-/**
- * Normalize Mermaid source text.
- *
- * When users paste a single-line definition where nodes are separated by
- * semicolons (e.g. "A --> B; B --> C"), splitting on semicolons makes it
- * valid Mermaid syntax, because the renderer expects each statement on its
- * own line.
- */
-function normalizeSource(source) {
-  const lines = source.split("\n").map((line) => line.trimEnd());
-  const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
-
-  if (nonEmptyLines.length === 1 && nonEmptyLines[0].includes(";")) {
-    return nonEmptyLines[0]
-      .split(";")
-      .map((part) => part.trim())
-      .filter(Boolean)
-      .join("\n");
-  }
-
-  return source;
-}
-
 function renderDiagram() {
-  const source = normalizeSource(sourceInput.value.trim());
+  const source = sourceInput.value.trim();
 
   if (!source) {
     currentSvg = "";
