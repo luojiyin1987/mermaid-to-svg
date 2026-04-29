@@ -66,6 +66,19 @@ select {
   color: var(--muted);
 }
 
+.privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(45, 106, 79, 0.1);
+  color: var(--success);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .workspace {
   display: grid;
   grid-template-columns: minmax(320px, 0.95fr) minmax(320px, 1.05fr);
