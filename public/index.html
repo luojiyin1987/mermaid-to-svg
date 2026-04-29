@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mermaid to SVG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Browser-side SVG rendering</p>
+        <h1>Mermaid 转 SVG</h1>
+        <p class="intro">
+          支持两种输入方式：直接输入 Mermaid 内容，或者上传 `.mmd` 文件。渲染和下载都在浏览器端完成，部署时只需要静态文件。
+        </p>
+      </section>
+
+      <section class="workspace">
+        <div class="panel editor-panel">
+          <div class="panel-head">
+            <h2>Mermaid 输入</h2>
+            <div class="actions">
+              <label class="select-wrap" for="theme-select">
+                <span class="sr-only">Theme</span>
+                <select id="theme-select" aria-label="选择 SVG 主题"></select>
+              </label>
+              <label class="file-button" for="file-input">上传 .mmd</label>
+              <input id="file-input" type="file" accept=".mmd,.mermaid,.txt,text/plain,text/markdown" />
+              <button id="render-button" type="button">渲染 SVG</button>
+              <button id="download-button" type="button" disabled>下载 SVG</button>
+            </div>
+          </div>
+          <div class="upload-meta">
+            <span class="meta-label">当前文件</span>
+            <span id="file-name" class="meta-value">未选择文件，当前使用手动输入</span>
+          </div>
+          <label class="sr-only" for="source-input">Mermaid source</label>
+          <textarea id="source-input" spellcheck="false">
+flowchart TD
+    A[用户浏览器]
+    A --> B[上传 .mmd 文件]
+    A --> C[输入 Mermaid 内容]
+    A --> D[浏览器渲染 SVG]
+    A --> E[下载 SVG]
+    F[Cloudflare]
+    F --> G[Pages / Workers Static Assets 托管静态文件]
+          </textarea>
+          <p class="hint">
+            快捷键：`Ctrl + Enter` 或 `Cmd + Enter` 立即渲染。
+          </p>
+        </div>
+
+        <div class="panel preview-panel">
+          <div class="panel-head">
+            <h2>SVG 预览</h2>
+            <span id="status-badge" class="status">等待渲染</span>
+          </div>
+          <div id="error-box" class="error" hidden></div>
+          <div id="preview" class="preview">
+            <div class="empty-state">
+              <p>点击“渲染 SVG”后会在这里生成图形。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
