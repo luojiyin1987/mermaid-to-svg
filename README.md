@@ -61,3 +61,11 @@ pnpm run dev
 - `public/app.js`：构建产物
 - `wrangler.toml`：Cloudflare Workers Static Assets 配置
 - `package.json`：依赖与构建脚本
+
+## 致谢
+
+本项目基于 [beautiful-mermaid](https://github.com/lukilabs/beautiful-mermaid) 构建，感谢上游库提供的出色主题和渲染能力。
+
+## License
+
+[MIT](LICENSE)
